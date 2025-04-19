@@ -15,9 +15,7 @@
 
 <div class="book-list-wrapper bg-gray">
     <div class="search-text text-center">
-        <p *ngIf="idsQuery">Showing books by ID: {{ idsQuery }}</p>
-        <p *ngIf="languageQuery">Showing books in: {{ languageQuery }}</p>
-        <p *ngIf="!idsQuery && !languageQuery && searchQuery">Searching for: "{{ searchQuery }}"</p>
+        <p *ngIf="searchQuery">Searching for: "{{ searchQuery }}"</p>
     </div>
     <div class="container">
         <div class="book-list" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="300" (scrolled)="loadMore()">

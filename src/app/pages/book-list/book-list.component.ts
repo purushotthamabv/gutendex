@@ -21,9 +21,6 @@ export class BookListComponent {
   formats: any;
   apiRequest: any;
   isLoading = false;
-  idsQuery: string = '';
-  languageQuery: string = '';
-  mimeTypeQuery = '';
 
   constructor(
     private route: ActivatedRoute,
@@ -88,8 +85,6 @@ export class BookListComponent {
   // Clear search input
   clearSearch() {
     this.searchQuery = '';
-    this.idsQuery = '';
-    this.languageQuery = '';
     this.books = [];
     this.nextUrl = null;
     this.fetchBooks();

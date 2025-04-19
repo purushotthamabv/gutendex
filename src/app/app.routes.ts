@@ -7,4 +7,3 @@ export const routes: Routes = [
     { path: 'books/:genre', component: BookListComponent },
     { path: '**', redirectTo: '' }
 ];
-
