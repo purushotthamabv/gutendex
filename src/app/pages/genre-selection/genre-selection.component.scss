@@ -1,0 +1,63 @@
+.banner-block {
+    padding: 65px 0;
+}
+
+.project-title {
+    margin-bottom: 30px;
+}
+
+.genre-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.genre-card {
+    font-size: 20px;
+    padding: 0 10px;
+    margin: 20px 0;
+    height: 50px;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(211, 209, 238, 0.5);
+    background-color: #ffffff;
+    border: none;
+    cursor: pointer;
+    line-height: 50px;
+    width: 40%;
+    position: relative;
+}
+
+.arrow-right {
+    display: block;
+    width: 40px;
+    right: 10px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-top: 8px;
+}
+
+@media(max-width:810px) {
+    .genre-container {
+        padding: 20px 0;
+    }
+
+    .genre-card {
+        width: calc(50% - 30px);
+
+        &:nth-child(odd) {
+            margin-left: 0;
+        }
+
+        &:nth-child(even) {
+            margin-right: 0;
+        }
+    }
+}
+
+@media(max-width:468px) {
+    .genre-card {
+        width: 100%;
+        margin: 10px 0;
+    }
+}

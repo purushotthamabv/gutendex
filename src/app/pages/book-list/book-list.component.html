@@ -1,0 +1,42 @@
+<div class="book-list-wrapper">
+    <div class="container">
+        <div class="genre-title">
+            <h2 (click)="goHome()">
+                <span><span class="arrow"><img src="../../../assets/icons/icons-left-arrow.png" alt="arrow left"></span>{{ genre }}</span>
+            </h2>
+        </div>
+        <div class="search-wrapper">
+            <input class="search-box" type="text" placeholder="Search" [(ngModel)]="searchQuery"
+                (input)="onSearch()" />
+                <span class="clear-icon" *ngIf="searchQuery" (click)="clearSearch()"><img src="../../../assets/icons/icon-close.svg" alt="icon close"></span>
+        </div>
+    </div>
+</div>
+
+<div class="book-list-wrapper bg-gray">
+    <div class="search-text text-center">
+        <p *ngIf="idsQuery">Showing books by ID: {{ idsQuery }}</p>
+        <p *ngIf="languageQuery">Showing books in: {{ languageQuery }}</p>
+        <p *ngIf="!idsQuery && !languageQuery && searchQuery">Searching for: "{{ searchQuery }}"</p>
+    </div>
+    <div class="container">
+        <div class="book-list" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="300" (scrolled)="loadMore()">
+            @if (books.length > 0) {
+                @for (book of books; track $index) {
+                    <div class="book-card" (click)="openBook(book)">
+                        <div class="book-img">
+                            <img [src]="book.formats['image/jpeg']" alt="{{ book.title }}" />
+                        </div>
+                        <div class="book-title">{{ book.title }}</div>
+                        <div class="book-author">{{ book.authors[0]?.name }}</div>
+                    </div>
+                }
+            }@else {
+            <div class="empty">
+                No books found for "{{ searchQuery || genre }}"
+            </div>
+            }
+        </div>
+    </div>
+    <div *ngIf="isLoading" class="loader">Loading...</div>
+</div>

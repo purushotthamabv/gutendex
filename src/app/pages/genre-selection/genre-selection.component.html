@@ -1,0 +1,28 @@
+<div class="genre-wrapper bg-gray">
+    <div class="banner-block">
+        <div class="container">
+            <div class="project-title">
+                <h1>
+                    Gutenberg Project
+                </h1>
+            </div>
+            <div class="project-subtitle">
+                social cataloging website that allows you to 
+                    freely search its database of books, 
+                    annotations, and reviews.
+            </div>
+        </div>
+    </div>
+    <div class="genre-wrapper">
+        <div class="container">
+            <div class="genre-container">
+                @for (genre of genres; track $index) {
+                <div class="genre-card" (click)="selectGenre(genre)">
+                    <span>{{ genre }}</span>
+                    <span class="arrow-right"><img src="../../../assets/icons/icon-arrow-right.png" alt="arrow"></span>
+                </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
